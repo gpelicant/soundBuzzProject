@@ -1,0 +1,21 @@
+<div class="kpi-type">
+  <p>Login</p>
+</div>
+<form [formGroup]="formLogin" (submit)="onSubmit()">
+  <mat-dialog-content>
+       <mat-form-field>
+          <mat-label>name</mat-label>
+          <input matInput placeholder="name" formControlName="name">
+       </mat-form-field>
+       <mat-form-field class="input-goal">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="password" name="password" formControlName="password">
+      </mat-form-field>
+  </mat-dialog-content>
+   <div mat-dialog-actions class="button-container">
+      <button class="cancel-button" mat-button mat-dialog-close>Cancel</button>
+      <button class="create-button" mat-raised-button type="submit" color="primary" [disabled]="!formLogin.valid">Create</button>
+  </div>
+</form>
+
+
