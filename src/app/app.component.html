@@ -1,10 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <base href="/">
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <button routerLink="/test" routerLinkActive="active" mat-button>Click me!</button>
-  <button mat-button (click)="openLogin()">Login</button>
-  <router-outlet></router-outlet>
+<div class="layout">
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    <button routerLink="/test" routerLinkActive="active" mat-button>Click me!</button>
+    <button mat-button (click)="openLogin()">Login</button>
+    <router-outlet></router-outlet>
+  </div>
 </div>
+
