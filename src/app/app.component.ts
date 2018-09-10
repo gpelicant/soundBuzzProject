@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SoundBuzz';
+  user: any;
+  constructor(
+    @Inject(MatDialog) private matDialog: MatDialog,
+    ) {}
+
+    openLogin(): void {
+        const dialogRef = this.matDialog.open(LoginComponent, {
+            width: '700px'
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed', result);
+          this.user = result;
+        });
+    }
 }
