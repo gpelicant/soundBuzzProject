@@ -29,7 +29,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(
       routes,
-      { enableTracing: true, useHash: true },
+      { enableTracing: false, useHash: true },
     ),
     BrowserModule,
     HttpClientModule,
