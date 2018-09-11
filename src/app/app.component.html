@@ -1,13 +1,39 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <base href="/">
-<div class="layout">
-  <div style="text-align:center">
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
-    <button routerLink="/test" routerLinkActive="active" mat-button>Click me!</button>
-    <button mat-button (click)="openLogin()">Login</button>
-    <router-outlet></router-outlet>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<div class="page-container">
+  <div class="menu-container">
+    <div class="home-container">
+      <div class="button-home">
+        <button mat-button routerLink="/" routerLinkActive="active" class="return-home"><i class="material-icons">home</i></button>
+      </div>
+      <h1>
+        {{ title }}!
+      </h1>
+    </div>
+    <div class="search-container">
+      <input matInput class="search-bar" placeholder="search ..." name="search">
+    </div>
+    <div class="action-container">
+      <div class="download-container">
+        <button mat-button class="download"><i class="material-icons">cloud_download</i></button>
+      </div>
+      <div class="profil-container">
+        <button mat-button class="profil"><i class="material-icons">person</i></button>
+      </div>
+      <div class="login-container">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <i class="material-icons">more_horiz</i>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="openLogin()" class="login">Login</button>
+        </mat-menu>
+      </div>
+      <!-- <button mat-button class="menu" (click)="openLogin()"><i class="material-icons">more_horiz</i></button> -->
+    </div>
   </div>
+  <router-outlet></router-outlet>
 </div>
+
 
