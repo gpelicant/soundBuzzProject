@@ -1,20 +1,22 @@
-<div class="login">
+<div class="login-title">
   <p>Login</p>
 </div>
 <form [formGroup]="formLogin" (submit)="onSubmit()">
-  <mat-dialog-content>
-       <mat-form-field>
-          <mat-label>name</mat-label>
-          <input matInput placeholder="name" formControlName="name">
-       </mat-form-field>
-       <mat-form-field class="input-goal">
+  <mat-dialog-content class="login-content">
+    <div class="login-content">
+      <mat-form-field>
+          <mat-label>mail</mat-label>
+          <input matInput type="mail" placeholder="name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="input-goal">
           <mat-label>Password</mat-label>
-          <input matInput placeholder="password" name="password" formControlName="password">
+          <input matInput type="password" placeholder="password" name="password" formControlName="password">
       </mat-form-field>
+    </div>
   </mat-dialog-content>
    <div mat-dialog-actions class="button-container">
       <button class="cancel-button" mat-button mat-dialog-close>Cancel</button>
-      <button class="create-button" mat-raised-button type="submit" color="primary" [disabled]="!formLogin.valid">Create</button>
+      <button class="create-button" mat-raised-button type="submit" color="primary" [disabled]="!formLogin.valid">Submit</button>
   </div>
 </form>
 
