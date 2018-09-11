@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { LoginComponent } from './login/login.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @Component({
   selector: 'app-root',
@@ -22,5 +23,14 @@ export class AppComponent {
           console.log('The dialog was closed', result);
           this.user = result;
         });
+    }
+
+    openInscription(): void {
+      const dialogRef = this.matDialog.open(InscriptionComponent, {
+        width: '700px'
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('inscription : ', result);
+      });
     }
 }
