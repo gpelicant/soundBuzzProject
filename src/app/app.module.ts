@@ -11,6 +11,7 @@ import { MaterialModule } from './shared/material.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { LoginComponent } from './login/login.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 
 
@@ -24,7 +25,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     TestComponent,
-    LoginComponent
+    LoginComponent,
+    InscriptionComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -44,7 +46,8 @@ const routes: Routes = [
     MaterialModule,
   ],
   entryComponents: [
-    LoginComponent
+    LoginComponent,
+    InscriptionComponent
   ],
   bootstrap: [AppComponent]
 })

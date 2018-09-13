@@ -1,0 +1,35 @@
+<div class="inscription-title">
+    <p>Inscription</p>
+</div>
+<form [formGroup]="formInscription" (submit)="onSubmit()">
+<mat-dialog-content>
+    <div class="inscription-content">
+        <mat-form-field>
+            <mat-label>pseudo</mat-label>
+            <input matInput type="text" placeholder="name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>mail</mat-label>
+            <input matInput type="mail" placeholder="email" formControlName="mail">
+        </mat-form-field>
+        <div class="password-container" [formGroup]="formPassword">
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="password" name="password" formControlName="password">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Repeat password</mat-label>
+                <input matInput type="password" placeholder="password" name="repeatPassword" formControlName="repeatPassword">
+
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="error-container">
+        <p class="error-match" *ngIf="formPassword.errors?.doesMatchPassword">Password does not match, please check again</p>
+    </div>
+</mat-dialog-content>
+    <div mat-dialog-actions class="button-container">
+    <button class="cancel-button" mat-button mat-dialog-close>Cancel</button>
+    <button class="create-button" mat-raised-button type="submit" color="primary" [disabled]="!formInscription.valid">Submit</button>
+</div>
+</form>
