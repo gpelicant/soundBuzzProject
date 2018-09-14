@@ -10,21 +10,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './shared/material.module';
 import { CookieModule } from 'ngx-cookie';
 
+
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { LoginComponent } from './login/login.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 
 import { LoginService } from './login/login.service';
-
-
-
-
+import { AuthGuardService } from './AuthGuardService';
 
 const routes: Routes = [
   { path: 'test', component: TestComponent },
-  { path: '',   redirectTo: '/', pathMatch: 'full' },
-  { path: '**', redirectTo: '/'}
+  { path: '',   redirectTo: '/', pathMatch: 'full', canActivate: [AuthGuardService] },
+  { path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -53,6 +51,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MaterialModule,
     LoginService,
+    AuthGuardService
   ],
   entryComponents: [
     LoginComponent,
