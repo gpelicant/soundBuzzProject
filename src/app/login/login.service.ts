@@ -14,8 +14,6 @@ export class LoginService {
     this.http.post(`${baseUrl}/users`, {login, password}).subscribe(
       (res: any) => {
         const data = res.json();
-        console.log(data)
-        console.log('kjshkjdhzjkd')
         const options: CookieOptions = {
           path: '/',
           expires: new Date(Date.now() + (4 * 60 * 60 * 1000)),
