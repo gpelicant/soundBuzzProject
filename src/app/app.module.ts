@@ -18,6 +18,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 
 import { LoginService } from './login/login.service';
 import { AuthGuardService } from './AuthGuardService';
+import { InscriptionService } from './inscription/inscription.service';
 
 const routes: Routes = [
   { path: 'test', component: TestComponent },
@@ -51,6 +52,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MaterialModule,
     LoginService,
+    InscriptionService,
     AuthGuardService
   ],
   entryComponents: [

@@ -28,7 +28,8 @@ export class LoginComponent  implements OnInit {
         console.log(this.formLogin);
         const user: any = {
             name: this.formLogin.value.name,
-            password: this.formLogin.value.password
+            password: this.formLogin.value.password,
+            mail: 'dtzz@mail.fr'
         };
         this.matDialogRef.close(user);
     }

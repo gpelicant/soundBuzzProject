@@ -34,7 +34,11 @@ export class InscriptionComponent  implements OnInit {
     }
 
     onSubmit () {
-        console.log('submit');
-        this.matDialogRef.close();
+        const user: any = {
+            name: this.formInscription.value.name,
+            mail: this.formInscription.value.mail,
+            password: this.formPassword.value.password
+        };
+        this.matDialogRef.close(user);
     }
 }
