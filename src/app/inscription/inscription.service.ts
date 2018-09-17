@@ -11,7 +11,7 @@ export class InscriptionService {
 
   onCreate (login: string, password: string, mail: string) {
     console.log(baseUrl, login, password, mail);
-    this.http.get(`http://${baseUrl}/users/1`).subscribe(
+    this.http.post(`http://${baseUrl}/users`, {login, mail, password}).subscribe(
       (res: any) => {
         const data = res.json();
         const options: CookieOptions = {
