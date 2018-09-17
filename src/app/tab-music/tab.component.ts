@@ -6,25 +6,6 @@ import { Component } from '@angular/core';
 })
 export class TabComponent {
     player: any;
+    volume: number;
     constructor() {}
-
-    // playAud() {
-    //     this.player = document.getElementById('music_player');
-    //     this.player.controls = false;
-    //     this.player.play();
-    // }
-
-    // pauseAud() {
-    //     this.player.pause();
-    // }
-
-    // stopAud() {
-    //     this.player.pause();
-    //     this.player.currentTime = 0;
-    // }
-
-    // changeVol() {
-    //     console.log(document.getElementById('change_vol'));
-    //     this.player.volume = document.getElementById('change_vol').value;
-    // }
 }
