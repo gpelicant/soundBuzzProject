@@ -25,7 +25,12 @@ export class LoginComponent  implements OnInit {
     }
 
     onSubmit () {
-        console.log('submit');
-        this.matDialogRef.close();
+        console.log(this.formLogin);
+        const user: any = {
+            name: this.formLogin.value.name,
+            password: this.formLogin.value.password,
+            mail: 'dtzz@mail.fr'
+        };
+        this.matDialogRef.close(user);
     }
 }
