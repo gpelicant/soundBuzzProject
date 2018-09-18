@@ -12,10 +12,13 @@ import { CookieModule } from 'ngx-cookie';
 
 
 import { AppComponent } from './app.component';
-import { TestComponent } from './test/test.component';
+import { TabComponent } from './tab-music/tab.component';
 import { LoginComponent } from './login/login.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NewsComponent } from './tab-music/news/news.component';
+import { TopComponent } from './tab-music/top/top.component';
+import { LastComponent } from './tab-music/last/last.component';
 
 import { AuthGuardService } from './AuthGuardService';
 import { InscriptionService } from './inscription/inscription.service';
@@ -24,20 +27,22 @@ import { UserService } from './shared/user.service';
 
 
 const routes: Routes = [
-  { path: 'test', component: TestComponent },
+  { path: 'home', component: TabComponent },
   { path: 'profil', component: PageProfileComponent},
-  { path: '',   redirectTo: '/', pathMatch: 'full', canActivate: [AuthGuardService] },
-  { path: '**', redirectTo: '/', pathMatch: 'full'}
-];
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home'}
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
+    TabComponent,
     LoginComponent,
     InscriptionComponent,
     ProfileComponent,
     PageProfileComponent
+    NewsComponent,
+    TopComponent,
+    LastComponent
   ],
   imports: [
     RouterModule.forRoot(
