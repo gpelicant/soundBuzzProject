@@ -1,0 +1,37 @@
+<div class="login-title">
+    <p>Upload</p>
+</div>
+<form [formGroup]="formUpload" (submit)="onSubmit()">
+    <mat-dialog-content class="upload-content">
+        <div class="upload-content">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="title" formControlName="title">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Artist</mat-label>
+                <input matInput placeholder="artist" name="artist" formControlName="artist">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Date</mat-label>
+                <input matInput type="datetime" placeholder="creation data" name="date" formControlName="date_creation">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description optionnal" name="description" formControlName="description"></textarea>
+            </mat-form-field>
+            <!-- <mat-form-field>
+                <mat-select placeholder="Kind of music">
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> -->
+            <input class="upload-file" type="file" placeholder="link image" name="image" formControlName="image">
+        </div>
+    </mat-dialog-content>
+        <div mat-dialog-actions class="button-container">
+        <button class="cancel-button" mat-button mat-dialog-close>Cancel</button>
+        <button class="create-button" mat-raised-button type="submit" color="primary" [disabled]="!formUpload.valid">Submit</button>
+    </div>
+</form>

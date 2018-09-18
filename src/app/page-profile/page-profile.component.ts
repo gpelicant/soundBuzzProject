@@ -21,8 +21,6 @@ export class PageProfileComponent implements OnInit {
 
     ngOnInit(): void {
         this.user = this.userService.getUser();
-        console.log(this.user);
-
     }
 
     openProfile(): void {
@@ -32,7 +30,6 @@ export class PageProfileComponent implements OnInit {
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                console.log(result);
                 this.user = result;
                 const login = result.login;
                 const mail = result.mail;
@@ -45,7 +42,6 @@ export class PageProfileComponent implements OnInit {
                             expires: new Date(Date.now() + (4 * 60 * 60 * 1000)),
                             httpOnly: true
                         };
-                        console.log(data);
                         this.user = data;
                         this.userService.setUser(this.user);
                         this.cookie.put('AuthToken', data.access_token, options);

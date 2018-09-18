@@ -24,13 +24,15 @@ import { AuthGuardService } from './AuthGuardService';
 import { InscriptionService } from './inscription/inscription.service';
 import { PageProfileComponent } from './page-profile/page-profile.component';
 import { UserService } from './shared/user.service';
+import { UploadComponent } from './upload/upload.component';
 
 
 const routes: Routes = [
   { path: 'home', component: TabComponent },
   { path: 'profil', component: PageProfileComponent},
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home'}
+  { path: '**', redirectTo: '/home' }
+];
 
 @NgModule({
   declarations: [
@@ -39,10 +41,11 @@ const routes: Routes = [
     LoginComponent,
     InscriptionComponent,
     ProfileComponent,
-    PageProfileComponent
+    PageProfileComponent,
     NewsComponent,
     TopComponent,
-    LastComponent
+    LastComponent,
+    UploadComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -69,7 +72,8 @@ const routes: Routes = [
   entryComponents: [
     LoginComponent,
     InscriptionComponent,
-    ProfileComponent
+    ProfileComponent,
+    UploadComponent
   ],
   bootstrap: [AppComponent]
 })
