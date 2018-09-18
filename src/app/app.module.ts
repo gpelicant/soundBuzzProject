@@ -16,7 +16,6 @@ import { TestComponent } from './test/test.component';
 import { LoginComponent } from './login/login.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 
-import { LoginService } from './login/login.service';
 import { AuthGuardService } from './AuthGuardService';
 import { InscriptionService } from './inscription/inscription.service';
 
@@ -51,7 +50,6 @@ const routes: Routes = [
   providers: [
     BrowserAnimationsModule,
     MaterialModule,
-    LoginService,
     InscriptionService,
     AuthGuardService
   ],

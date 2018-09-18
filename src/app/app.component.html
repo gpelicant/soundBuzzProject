@@ -19,11 +19,11 @@
       <div class="download-container">
         <button mat-button class="download"><i class="material-icons">cloud_download</i></button>
       </div>
-      <div class="profil-container">
+      <div class="profil-container" *ngIf="log">
         <button mat-button class="profil"><i class="material-icons">person</i></button>
       </div>
       <div class="login-container">
-        <button mat-icon-button [matMenuTriggerFor]="menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="!log">
           <i class="material-icons">more_horiz</i>
         </button>
         <mat-menu #menu="matMenu">
