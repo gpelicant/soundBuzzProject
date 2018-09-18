@@ -3,10 +3,12 @@ import { MatDialog } from '@angular/material';
 import { LoginComponent } from './login/login.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { InscriptionService } from './inscription/inscription.service';
+import { UserService } from './shared/user.service';
 import { CookieService, CookieOptions } from 'ngx-cookie';
 import { Http } from '@angular/http';
 import { baseUrl } from './app.service';
 import { Router } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +23,7 @@ export class AppComponent {
   constructor(
     @Inject(MatDialog) private matDialog: MatDialog,
     private inscription: InscriptionService,
+    private userService: UserService,
     private http: Http,
     private router: Router,
     private cookie: CookieService
@@ -31,14 +34,16 @@ export class AppComponent {
             width: '700px'
         });
         dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed', result);
           this.user = result;
           this.http.get(`http://${baseUrl}/users`).subscribe(
             (res: any) => {
               const data = res.json();
+              console.log('data', data);
               data.forEach(d => {
                 if (d.login === this.user.name && d.password === this.user.password) {
+                  console.log('user', d);
                   this.log = true;
+                  this.user = d;
                 }
               });
               const options: CookieOptions = {
@@ -48,6 +53,7 @@ export class AppComponent {
               };
               this.cookie.put('AuthToken', data.access_token, options);
               this.router.navigate(['']);
+              this.userService.setUser(this.user);
             },
             err => {
               console.log('err', err);

@@ -6,6 +6,7 @@ import {
     MatDialogModule,
     MatIconModule,
     MatMenuModule,
+    MatListModule,
     MatTabsModule
   } from '@angular/material';
   import { NgModule } from '@angular/core';
@@ -19,6 +20,7 @@ import {
         MatIconModule,
         MatDialogModule,
         MatMenuModule,
+        MatListModule,
         MatTabsModule
       ],
       imports: [
@@ -29,6 +31,7 @@ import {
         MatDialogModule,
         MatIconModule,
         MatMenuModule,
+        MatListModule,
         MatTabsModule
       ]
     })

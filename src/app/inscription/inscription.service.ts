@@ -10,8 +10,7 @@ export class InscriptionService {
   constructor(private http: Http, private router: Router, private cookie: CookieService) { }
 
   onCreate (login: string, password: string, mail: string) {
-    console.log(baseUrl, login, password, mail);
-    this.http.post(`http://${baseUrl}/users`, {login, mail, password}).subscribe(
+    this.http.post(`http://${baseUrl}/user`, {login, password, mail}).subscribe(
       (res: any) => {
         const data = res.json();
         const options: CookieOptions = {
@@ -19,7 +18,6 @@ export class InscriptionService {
           expires: new Date(Date.now() + (4 * 60 * 60 * 1000)),
           httpOnly: true
         };
-
         this.cookie.put('AuthToken', data.access_token, options);
         this.router.navigate(['']);
       },

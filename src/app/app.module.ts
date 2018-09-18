@@ -15,14 +15,20 @@ import { AppComponent } from './app.component';
 import { TabComponent } from './tab-music/tab.component';
 import { LoginComponent } from './login/login.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { ProfileComponent } from './profile/profile.component';
 import { NewsComponent } from './tab-music/news/news.component';
 import { TopComponent } from './tab-music/top/top.component';
 import { LastComponent } from './tab-music/last/last.component';
+
 import { AuthGuardService } from './AuthGuardService';
 import { InscriptionService } from './inscription/inscription.service';
+import { PageProfileComponent } from './page-profile/page-profile.component';
+import { UserService } from './shared/user.service';
+
 
 const routes: Routes = [
   { path: 'home', component: TabComponent },
+  { path: 'profil', component: PageProfileComponent},
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home'}
 
@@ -32,6 +38,8 @@ const routes: Routes = [
     TabComponent,
     LoginComponent,
     InscriptionComponent,
+    ProfileComponent,
+    PageProfileComponent
     NewsComponent,
     TopComponent,
     LastComponent
@@ -55,11 +63,13 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MaterialModule,
     InscriptionService,
-    AuthGuardService
+    AuthGuardService,
+    UserService
   ],
   entryComponents: [
     LoginComponent,
     InscriptionComponent,
+    ProfileComponent
   ],
   bootstrap: [AppComponent]
 })
