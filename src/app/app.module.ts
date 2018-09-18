@@ -15,12 +15,17 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { LoginComponent } from './login/login.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import { AuthGuardService } from './AuthGuardService';
 import { InscriptionService } from './inscription/inscription.service';
+import { PageProfileComponent } from './page-profile/page-profile.component';
+import { UserService } from './shared/user.service';
+
 
 const routes: Routes = [
   { path: 'test', component: TestComponent },
+  { path: 'profil', component: PageProfileComponent},
   { path: '',   redirectTo: '/', pathMatch: 'full', canActivate: [AuthGuardService] },
   { path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
@@ -30,7 +35,9 @@ const routes: Routes = [
     AppComponent,
     TestComponent,
     LoginComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    ProfileComponent,
+    PageProfileComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -51,11 +58,13 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MaterialModule,
     InscriptionService,
-    AuthGuardService
+    AuthGuardService,
+    UserService
   ],
   entryComponents: [
     LoginComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    ProfileComponent
   ],
   bootstrap: [AppComponent]
 })
