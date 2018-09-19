@@ -86,4 +86,8 @@ export class AppComponent {
         }
       });
     }
+
+    logout() {
+      this.log = !this.log;
+    }
 }

@@ -19,12 +19,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { NewsComponent } from './tab-music/news/news.component';
 import { TopComponent } from './tab-music/top/top.component';
 import { LastComponent } from './tab-music/last/last.component';
+import { AllComponent } from './tab-music/all/all.component';
 
 import { AuthGuardService } from './AuthGuardService';
 import { InscriptionService } from './inscription/inscription.service';
 import { PageProfileComponent } from './page-profile/page-profile.component';
 import { UserService } from './shared/user.service';
 import { UploadComponent } from './upload/upload.component';
+import { MusicService } from './shared/music.service';
 
 
 const routes: Routes = [
@@ -45,7 +47,8 @@ const routes: Routes = [
     NewsComponent,
     TopComponent,
     LastComponent,
-    UploadComponent
+    UploadComponent,
+    AllComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -67,7 +70,8 @@ const routes: Routes = [
     MaterialModule,
     InscriptionService,
     AuthGuardService,
-    UserService
+    UserService,
+    MusicService
   ],
   entryComponents: [
     LoginComponent,

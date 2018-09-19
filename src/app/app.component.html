@@ -20,12 +20,13 @@
         <button mat-button [routerLink]="['/profil']" routerLinkActive="router-link-active"  class="profil"><i class="material-icons">person</i></button>
       </div>
       <div class="login-container">
-        <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="!log" class="menu-button">
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
           <i class="material-icons">more_horiz</i>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="openLogin()" class="login">Login</button>
-          <button mat-menu-item (click)="openInscription()" class="login">Inscription</button>
+          <button mat-menu-item (click)="openLogin()" *ngIf="!log" class="login">Login</button>
+          <button mat-menu-item (click)="openInscription()" *ngIf="!log" class="login">Inscription</button>
+          <button mat-menu-item (click)="logout()" *ngIf="log" class="login">Logout</button>
         </mat-menu>
       </div>
       <!-- <button mat-button class="menu" (click)="openLogin()"><i class="material-icons">more_horiz</i></button> -->
