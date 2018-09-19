@@ -5,18 +5,19 @@
             <mat-list role="list">
                 <mat-list-item role="listitem">Pseudo : {{user.login}}</mat-list-item>
                 <mat-list-item role="listitem">Mail : {{user.mail}}</mat-list-item>
-                <button mat-raised-button (click)="openProfile()" color="primary">Modification</button>
+                <button mat-raised-button (click)="openProfile()" color="primary">Modify</button>
             </mat-list>
         </mat-card>
-        <mat-card class="basic-card">
+        <mat-card class="basic-card" *ngFor="let isMusic of isMusics">
             <mat-card class="container-card-music">
                 <div class="card-music wrapper">
                     <div class="image-music">
-                        <img class="avatar-music" src="../../assets/images/arthas.jpg"/>
+                        <img class="avatar-music" src="{{getLinkImage(isMusic)}}"/>
                     </div>
                     <div class='title-music'>
-                        <p>Arthas, my son</p>
+                        <p>{{isMusic.title}}</p>
                     </div>
+                    <button mat-raised-button (click)="modify(isMusic)" color="primary">Modify</button>
                     <button mat-raised-button color="primary">Delete</button>
                 </div>
             </mat-card>

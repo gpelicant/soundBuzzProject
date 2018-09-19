@@ -1,10 +1,17 @@
+<mat-form-field class="select-artist">
+    <mat-select placeholder="Choose an artist" [(ngModel)]="selectedValue">
+        <mat-option *ngFor="let music of musics" [value]="music.artist">
+            {{music.artist}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
 <div class="section">
-    <div class="container-music" *ngFor="let music of musics">
-        <mat-card class="basic-card" *ngIf="validTop(music)">
+    <div class="container-music" *ngFor="let music of musics" [ngClass]="{none: music.artist !== selectedValue}">
+        <mat-card class="basic-card" *ngIf="music.artist === selectedValue">
             <div class="artist-name">
                 <h1 class="title-artist">{{music.artist}} : {{music.title}}</h1>
             </div>
-            <div class="wrapper" >
+            <div class="wrapper">
                 <div class="image-music">
                     <img class="avatar-music" src="{{getLinkImage(music)}}"/>
                 </div>
