@@ -9,6 +9,7 @@ import { Http } from '@angular/http';
 import { baseUrl } from './app.service';
 import { Router } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
+import { UploadComponent } from './upload/upload.component';
 
 @Component({
   selector: 'app-root',
@@ -34,30 +35,32 @@ export class AppComponent {
             width: '700px'
         });
         dialogRef.afterClosed().subscribe(result => {
-          this.user = result;
-          this.http.get(`http://${baseUrl}/users`).subscribe(
-            (res: any) => {
-              const data = res.json();
-              console.log('data', data);
-              data.forEach(d => {
-                if (d.login === this.user.name && d.password === this.user.password) {
-                  console.log('user', d);
-                  this.log = true;
-                  this.user = d;
-                }
+          if (result) {
+            this.user = result;
+            this.http.get(`http://${baseUrl}/users`).subscribe(
+              (res: any) => {
+                const data = res.json();
+                console.log('data', data);
+                data.forEach(d => {
+                  if (d.login === this.user.name && d.password === this.user.password) {
+                    console.log('user', d);
+                    this.log = true;
+                    this.user = d;
+                  }
+                });
+                const options: CookieOptions = {
+                  path: '/',
+                  expires: new Date(Date.now() + (4 * 60 * 60 * 1000)),
+                  httpOnly: true
+                };
+                this.cookie.put('AuthToken', data.access_token, options);
+                this.router.navigate(['']);
+                this.userService.setUser(this.user);
+              },
+              err => {
+                console.log('err', err);
               });
-              const options: CookieOptions = {
-                path: '/',
-                expires: new Date(Date.now() + (4 * 60 * 60 * 1000)),
-                httpOnly: true
-              };
-              this.cookie.put('AuthToken', data.access_token, options);
-              this.router.navigate(['']);
-              this.userService.setUser(this.user);
-            },
-            err => {
-              console.log('err', err);
-            });
+            }
         });
     }
 
@@ -66,8 +69,25 @@ export class AppComponent {
         width: '700px'
       });
       dialogRef.afterClosed().subscribe(result => {
-        this.user = result;
-        this.inscription.onCreate(this.user.name, this.user.password, this.user.mail);
+        if (result) {
+          this.user = result;
+          this.inscription.onCreate(this.user.name, this.user.password, this.user.mail);
+        }
       });
+    }
+
+    onUpload(): void {
+      const dialogRef = this.matDialog.open(UploadComponent, {
+        width: '700px'
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          console.log('work in progress');
+        }
+      });
+    }
+
+    logout() {
+      this.log = !this.log;
     }
 }

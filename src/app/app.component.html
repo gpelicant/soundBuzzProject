@@ -6,29 +6,27 @@
   <div class="menu-container">
     <div class="home-container">
       <div class="button-home">
-        <button mat-button routerLink="/" routerLinkActive="active" class="return-home"><i class="material-icons">home</i></button>
+        <button mat-button routerLink="/" routerLinkActive="active" class="return-home"><img class="logo" src="../assets/images/logo.png"></button>
       </div>
-      <h1>
-        {{ title }}!
-      </h1>
     </div>
     <div class="search-container">
-      <input matInput class="search-bar" placeholder="search ..." name="search">
+      <input matInput class="search-bar menu-button" placeholder="search ..." name="search">
     </div>
     <div class="action-container">
       <div class="download-container">
-        <button mat-button class="download"><i class="material-icons">cloud_download</i></button>
+        <button mat-button class="download menu-button" (click)="onUpload()"><i class="material-icons">cloud_download</i></button>
       </div>
       <div class="profil-container" *ngIf="log">
         <button mat-button [routerLink]="['/profil']" routerLinkActive="router-link-active"  class="profil"><i class="material-icons">person</i></button>
       </div>
       <div class="login-container">
-        <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="!log">
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
           <i class="material-icons">more_horiz</i>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="openLogin()" class="login">Login</button>
-          <button mat-menu-item (click)="openInscription()" class="login">Inscription</button>
+          <button mat-menu-item (click)="openLogin()" *ngIf="!log" class="login">Login</button>
+          <button mat-menu-item (click)="openInscription()" *ngIf="!log" class="login">Inscription</button>
+          <button mat-menu-item (click)="logout()" *ngIf="log" class="login">Logout</button>
         </mat-menu>
       </div>
       <!-- <button mat-button class="menu" (click)="openLogin()"><i class="material-icons">more_horiz</i></button> -->

@@ -1,0 +1,21 @@
+<div class="section">
+    <div class="container-music" *ngFor="let music of musics">
+        <mat-card class="basic-card">
+            <div class="artist-name">
+                <h1 class="title-artist">{{music.artist}}</h1>
+            </div>
+            <div class="wrapper">
+                <div class="image-music">
+                    <img class="avatar-music" src="{{getLinkImage(music)}}"/>
+                </div>
+                <div class='player'>
+                    <audio id="music_player" src="{{getLinkMusic(music)}}" controls>
+                    </audio>
+                </div>
+            </div>
+            <div class="like">
+                <p>Like : {{music.top}}</p>
+            </div>
+        </mat-card>
+    </div>
+</div>
