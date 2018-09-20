@@ -2,7 +2,7 @@
     <div class="container-music" *ngFor="let music of musics">
         <mat-card class="basic-card" *ngIf="validDate(music)">
             <div class="artist-name">
-                <h1 class="title-artist">{{music.artist}}</h1>
+                <h1 class="title-artist">{{music.artist}} : {{music.title}}</h1>
             </div>
             <div class="wrapper">
                 <div class="image-music">

@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MusicService } from '../../shared/music.service';
-
+import * as moment from 'moment';
 @Component({
-    selector: 'app-top',
-    templateUrl: './top.html'
+    selector: 'app-artist',
+    templateUrl: './artist.html'
 })
-export class TopComponent implements OnInit {
+
+export class ArtistComponent implements OnInit {
     musics: any;
+    selectedValue: string;
     constructor(
         private musicService: MusicService,
     ) {  }
@@ -23,14 +25,8 @@ export class TopComponent implements OnInit {
         return music.linkMusic;
     }
 
-    validTop(music) {
-        let topCounter = 0;
-        this.musics.forEach(el => {
-            if (el.top > topCounter) {
-                topCounter = el.top;
-            }
-        });
-        topCounter /= 2;
-        return music.top > topCounter ? true : false;
+    validDate(music) {
+        const date = moment(music.date).month();
+        return date >= moment().month() ? true : false;
     }
 }

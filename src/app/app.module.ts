@@ -27,6 +27,8 @@ import { PageProfileComponent } from './page-profile/page-profile.component';
 import { UserService } from './shared/user.service';
 import { UploadComponent } from './upload/upload.component';
 import { MusicService } from './shared/music.service';
+import { ManageMusicComponent } from './page-profile/manage-music/manage-music.component';
+import { ArtistComponent } from './tab-music/artist/artist.component';
 
 
 const routes: Routes = [
@@ -48,7 +50,9 @@ const routes: Routes = [
     TopComponent,
     LastComponent,
     UploadComponent,
-    AllComponent
+    AllComponent,
+    ManageMusicComponent,
+    ArtistComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -77,7 +81,8 @@ const routes: Routes = [
     LoginComponent,
     InscriptionComponent,
     ProfileComponent,
-    UploadComponent
+    UploadComponent,
+    ManageMusicComponent
   ],
   bootstrap: [AppComponent]
 })
